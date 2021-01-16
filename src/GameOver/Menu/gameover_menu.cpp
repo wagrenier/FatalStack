@@ -33,18 +33,19 @@ int one_GameOver_Menu_Top(GPHASE_ENUM gphase)
 
 int after_GameOver_Menu(GPHASE_ENUM gphase)
 {
+	
 	undefined8 uVar1;
   
-  if (DAT_003f4c9c == '\x02') {
-    uVar1 = Zero2Anim2D_FadeOutAnimCtrl__FPis(0x4af6c0,0x1e);
-    SavePoint_BlackBgDisp__FUc(uVar1);
-  }
-  else {
-    if (DAT_003f4c9c == '\x04') {
-      uVar1 = Zero2Anim2D_FadeInAnimCtrl__FPis(0x4af6c0,0x1e);
-      SavePoint_BlackBgDisp__FUc(uVar1);
-    }
-  }
+	if (current_menu_state == RENDER) {
+		uVar1 = Zero2Anim2D_FadeOutAnimCtrl__FPis(0x4af6c0,0x1e);
+		SavePoint_BlackBgDisp__FUc(uVar1);
+	}
+	else {
+		if (current_menu_state == FADE_OUT_MENU) {
+			uVar1 = Zero2Anim2D_FadeInAnimCtrl__FPis(0x4af6c0,0x1e);
+			SavePoint_BlackBgDisp__FUc(uVar1);
+		}
+	}
   return 0;
 }
 

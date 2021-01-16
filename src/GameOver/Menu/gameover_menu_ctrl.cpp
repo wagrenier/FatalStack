@@ -1,3 +1,5 @@
+#include gameover_menu_ctrl.h
+
 void GameOverMenuCtrlInit(void)
 {
   current_menu_state = 0;
