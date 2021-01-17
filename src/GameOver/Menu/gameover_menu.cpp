@@ -106,7 +106,7 @@ void end_GameOver_Menu_Top()
 void GameOverMenuFadeOutReq()
 {
 	current_menu_state = FADE_OUT_MENU;
-	gameover_menu_disp = 0;
+	gameover_menu_disp[0] = 0;
 	StreamAutoFadeOut(gameover_menu_ctrl, 0x1e);
 }
 

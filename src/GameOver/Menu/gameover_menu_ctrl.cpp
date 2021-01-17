@@ -1,19 +1,18 @@
-#include gameover_menu_ctrl.h
+#include "gameover_menu_ctrl.h"
 
-void GameOverMenuCtrlInit(void)
+void GameOverMenuCtrlInit()
 {
     current_menu_state = INACTIVE;
 }
 
-void GameOverMenuDispMain__Fv(void)
-
+void GameOverMenuDispMain()
 {
     if (INITIATE < current_menu_state) {
-        SavePoint_BgDisp(0x4af6c4, 0x4af6c8, 0x4af6cc, gameover_bg_tex_addr);
+        SavePoint_BgDisp(gameover_menu_disp[1], gameover_menu_disp[2], gameover_menu_disp[3], gameover_bg_tex_addr);
     }
 }
 
-void GameOverMenuMain(void)
+void GameOverMenuMain()
 {
     switch(current_menu_state) {
         case INACTIVE:
@@ -34,7 +33,7 @@ void GameOverMenuMain(void)
             break;
         case FADE_OUT_MENU:
             if (0x1d < gameover_menu_disp) {
-                SetNextGPhase__F14GPHASE_ID_ENUM(0x35);
+                SetNextGPhase(GPHASE_ENUM_UNKNOWN0x35);
                 return;
             }
             break;

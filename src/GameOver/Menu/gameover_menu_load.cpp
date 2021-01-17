@@ -107,12 +107,16 @@ void GameOverLoadMain()
 void ReleaseGameOverLoadTexMem()
 {
     if (gameover_load_tex_addr != 0) {
-        mem_utilFreeMem(gameover_load_tex_addr);
+
+        // mem_utilFreeMem(gameover_load_tex_addr); <- EE equivalent of free()??
+        free(gameover_load_tex_addr);
         gameover_load_tex_addr = 0;
     }
 
     if (gameover_load_cmn_tex_addr != 0) {
-        mem_utilFreeMem(gameover_load_cmn_tex_addr);
+
+        // mem_utilFreeMem(gameover_load_cmn_tex_addr); <- EE equivalent of free()??
+        free(gameover_load_cmn_tex_addr);
         gameover_load_cmn_tex_addr = 0;
     }
 }
@@ -127,7 +131,7 @@ void GameOverLoadDispMain()
         return;
     }
 
-    undefined8 uVar1 = Zero2Anim2D_InOutAnimCtrl__FPcT0ss(0x3f4cb0, 0x3f4cb1, 10, 5);
+    undefined8 uVar1 = Zero2Anim2D_InOutAnimCtrl(0x3f4cb0, 0x3f4cb1, 10, 5);
 
     if (gameover_load_disp == '\x04') {
         return;
