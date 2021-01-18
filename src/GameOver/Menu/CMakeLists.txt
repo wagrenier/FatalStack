@@ -1,0 +1,3 @@
+add_library(gameover_menu OBJECT gameover_menu.cpp gameover_menu.h)
+add_library(gameover_menu_load OBJECT gameover_menu_load.cpp gameover_menu_load.h)
+add_library(gameover_menu_ctrl OBJECT gameover_menu_ctrl.cpp gameover_menu_ctrl.h)

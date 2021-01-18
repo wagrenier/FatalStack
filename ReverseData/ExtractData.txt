@@ -1,0 +1,18 @@
+All files names and path are store in the main app from location
+003c7e78	../bin/data/tim/	"../bin/data/tim/"	ds
+003c8448	../bin/data/subtitle/	"../bin/data/subtitle/"	ds
+
+003c8460	cdrom0:\PANICSYS.IRX;1	"cdrom0:\\PANICSYS.IRX;1"	ds
+003dd3c0	brightness.pk2	"brightness.pk2"	ds
+
+
+004BD859
+
+Hit 1 in rpcFileLoadReqSub inside theFileLoad, during a strcpy
+
+0026E908
+
+Being hit 2 times in theFileLoad
+
+1 - 0026F020
+2 - 0026F14C
