@@ -5,39 +5,38 @@ void GameOverScreenBgDisp(
         unsigned char param_2,
         unsigned char param_3,
         unsigned char param_4,
-        unsigned int param_5)
-{
+        unsigned int param_5) {
     uint uVar1;
     int iVar2;
     int iVar3;
     undefined *puVar4;
-    undefined auStack208 [52];
+    undefined auStack208[52];
     int local_9c;
     uint local_68;
-    undefined local_64 [4];
-    undefined local_60 [4];
-    undefined local_5c [4];
+    undefined local_64[4];
+    undefined local_60[4];
+    undefined local_5c[4];
     undefined local_58;
-    undefined auStack80 [8];
-    undefined auStack72 [8];
-    undefined auStack64 [16];
+    undefined auStack80[8];
+    undefined auStack72[8];
+    undefined auStack64[16];
 
     puVar4 = auStack80 + 7;
-    uVar1 = (uint)puVar4 & 7;
-    *(ulong *)(puVar4 + -uVar1) =
-            *(ulong *)(puVar4 + -uVar1) & -1 << (uVar1 + 1) * 8 | 0x1c000000280U >> (7 - uVar1) * 8;
+    uVar1 = (uint) puVar4 & 7;
+    *(ulong * )(puVar4 + -uVar1) =
+            *(ulong * )(puVar4 + -uVar1) & -1 << (uVar1 + 1) * 8 | 0x1c000000280U >> (7 - uVar1) * 8;
     auStack80 = 0x1c000000280;
     puVar4 = auStack72 + 7;
-    uVar1 = (uint)puVar4 & 7;
-    *(ulong *)(puVar4 + -uVar1) =
-            *(ulong *)(puVar4 + -uVar1) & -1 << (uVar1 + 1) * 8 | 0U >> (7 - uVar1) * 8;
+    uVar1 = (uint) puVar4 & 7;
+    *(ulong * )(puVar4 + -uVar1) =
+            *(ulong * )(puVar4 + -uVar1) & -1 << (uVar1 + 1) * 8 | 0U >> (7 - uVar1) * 8;
     auStack72 = 0;
     puVar4 = auStack64 + 7;
-    uVar1 = (uint)puVar4 & 7;
-    *(ulong *)(puVar4 + -uVar1) =
-            *(ulong *)(puVar4 + -uVar1) & -1 << (uVar1 + 1) * 8 | 0xffffff000000a0U >> (7 - uVar1) * 8;
+    uVar1 = (uint) puVar4 & 7;
+    *(ulong * )(puVar4 + -uVar1) =
+            *(ulong * )(puVar4 + -uVar1) & -1 << (uVar1 + 1) * 8 | 0xffffff000000a0U >> (7 - uVar1) * 8;
     auStack64._0_8_ = 0xffffff000000a0;
-    CopySqrDToSqr__FP9DISP_SQARP8SQAR_DAT(auStack208,auStack80);
+    CopySqrDToSqr__FP9DISP_SQARP8SQAR_DAT(auStack208, auStack80);
     puVar4 = local_64;
     iVar2 = 0;
     do {
@@ -55,19 +54,15 @@ void GameOverScreenBgDisp(
     return;
 }
 
-void end_Story_GameOver_Movie()
-
-{
+void end_Story_GameOver_Movie() {
     EndMovieWithTitle();
 }
 
-void init_Story_GameOver_Eff()
-{
+void init_Story_GameOver_Eff() {
     return;
 }
 
-GPHASE_ENUM one_Story_GameOver_Movie(GPHASE_ENUM gphase)
-{
+GPHASE_ENUM one_Story_GameOver_Movie(GPHASE_ENUM gphase) {
     long lVar1 = PlayMovieWithTitle();
     if (lVar1 != 0) {
         SetNextGPhase(0x2b);
@@ -75,23 +70,19 @@ GPHASE_ENUM one_Story_GameOver_Movie(GPHASE_ENUM gphase)
     return 0;
 }
 
-void end_Story_GameOver_Eff()
-{
+void end_Story_GameOver_Eff() {
     return;
 }
 
-void end_Story_GameOver_Fade()
-{
+void end_Story_GameOver_Fade() {
     return;
 }
 
-void init_Story_GameOver_Fade()
-{
+void init_Story_GameOver_Fade() {
     GameOverFadeCtrlInit();
 }
 
-GPHASE_ENUM one_Story_GameOver_Fade(GPHASE_ENUM gphase)
-{
+GPHASE_ENUM one_Story_GameOver_Fade(GPHASE_ENUM gphase) {
     int uVar1;
 
     PlayerMainCmn(1);
@@ -118,8 +109,7 @@ GPHASE_ENUM one_Story_GameOver_Fade(GPHASE_ENUM gphase)
     return 0;
 }
 
-GPHASE_ENUM one_Story_GameOver_Eff(GPHASE_ENUM gphase)
-{
+GPHASE_ENUM one_Story_GameOver_Eff(GPHASE_ENUM gphase) {
     undefined8 uVar1;
 
     PlayerMainCmn(1);
@@ -145,9 +135,7 @@ GPHASE_ENUM one_Story_GameOver_Eff(GPHASE_ENUM gphase)
     return 0;
 }
 
-void init_Story_GameOver_Movie()
-
-{
+void init_Story_GameOver_Movie() {
     StreamAutoAllStop();
     InitMovieWithTitle(0x45, 1);
     return;

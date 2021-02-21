@@ -4,15 +4,14 @@
 
 #include "g3dCamera.h"
 
-float g3dCalcDistanceToScreen(float param_1, float param_2)
-{
+float g3dCalcDistanceToScreen(float param_1, float param_2) {
     float fVar1;
     fVar1 = tanf(param_1 * 0.5);
     return param_2 / fVar1;
 }
 
-void g3dCalcViewClipMatrixOrtho(float (*)[3] param_1, float param_2, float param_3, float param_4, float param_5, float param_6, float param_7, float param_8)
-{
+void g3dCalcViewClipMatrixOrtho(float (*)[3] param_1, float param_2, float param_3, float param_4, float param_5,
+                                float param_6, float param_7, float param_8) {
     // SCE method
     sceVu0UnitMatrix();
     *param_8 = param_2 / param_6;
@@ -21,16 +20,17 @@ void g3dCalcViewClipMatrixOrtho(float (*)[3] param_1, float param_2, float param
     param_8[10] = -2.0 / (param_5 - param_4);
 }
 
-void g3dCalcViewScreenMatrixPerspective(float (*)[3] param_1, float param_2, float param_3, float param_4, float param_5, float param_6, float param_7, float param_8, float param_9, float param_10)
-{
+void
+g3dCalcViewScreenMatrixPerspective(float (*)[3] param_1, float param_2, float param_3, float param_4, float param_5,
+                                   float param_6, float param_7, float param_8, float param_9, float param_10) {
     G3DCREATIONDATA *puVar1;
     float fVar2;
     float in_stack_00000000;
-    undefined auStack144 [64];
+    undefined auStack144[64];
 
     fVar2 = (in_stack_00000000 * param_8 * (param_7 - param_6)) / (in_stack_00000000 - param_8);
     sceVu0UnitMatrix();
-    puVar1 = (G3DCREATIONDATA *)param_9;
+    puVar1 = (G3DCREATIONDATA *) param_9;
     puVar1[5] = param_1;
     puVar1[0xb] = 0x3f800000;
     puVar1[0xe] = 0x3f800000;
@@ -38,14 +38,14 @@ void g3dCalcViewScreenMatrixPerspective(float (*)[3] param_1, float param_2, flo
     puVar1[10] = 0;
     puVar1[0xf] = 0;
     g3dCalcScreenGSPrimitiveMatrix__FPA3_fffffff
-            (param_2,param_3,fVar2,param_4,param_5,
+            (param_2, param_3, fVar2, param_4, param_5,
              (-param_7 * param_8 + param_6 * in_stack_00000000) / (in_stack_00000000 - param_8),
              auStack144);
-    sceVu0MulMatrix(param_9,auStack144,param_9);
+    sceVu0MulMatrix(param_9, auStack144, param_9);
 }
 
-void g3dCalcViewScreenMatrixOrtho(float (*)[3] param_1, float param_2, float param_3, float param_4, float param_5, float param_6, float param_7, float param_8, float param_9, float param_10)
-{
+void g3dCalcViewScreenMatrixOrtho(float (*)[3] param_1, float param_2, float param_3, float param_4, float param_5,
+                                  float param_6, float param_7, float param_8, float param_9, float param_10) {
     float in_stack_00000000;
     float local_50;
     float fStack76;
@@ -65,9 +65,9 @@ void g3dCalcViewScreenMatrixOrtho(float (*)[3] param_1, float param_2, float par
     float fStack20;
 
     g3dCalcScreenGSPrimitiveMatrix__FPA3_fffffff
-            (param_2,param_3,
+            (param_2, param_3,
              (in_stack_00000000 * param_8 * (param_7 - param_6)) / (in_stack_00000000 - param_8),
-             param_4,param_5,
+             param_4, param_5,
              (-param_7 * param_8 + param_6 * in_stack_00000000) / (in_stack_00000000 - param_8),
              &local_50);
 
@@ -89,8 +89,8 @@ void g3dCalcViewScreenMatrixOrtho(float (*)[3] param_1, float param_2, float par
     param_9[0xf] = fStack68 * 0.0 + fStack52 * 0.0 + fStack36 * 0.0 + fStack20 * 1.0;
 }
 
-void g3dCalcScreenGSPrimitiveMatrix(float (*)[3] param_1, float param_2, float param_3, float param_4, float param_5, float param_6, float param_7)
-{
+void g3dCalcScreenGSPrimitiveMatrix(float (*)[3] param_1, float param_2, float param_3, float param_4, float param_5,
+                                    float param_6, float param_7) {
     sceVu0UnitMatrix();
     param_7[0xe] = param_6;
     *param_7 = param_1;
@@ -100,8 +100,8 @@ void g3dCalcScreenGSPrimitiveMatrix(float (*)[3] param_1, float param_2, float p
     param_7[0xd] = param_5;
 }
 
-void g3dCalcViewClipMatrixPerspective(float (*)[3] param_1, float param_2, float param_3, float param_4, float param_5, float param_6, float param_7, float param_8)
-{
+void g3dCalcViewClipMatrixPerspective(float (*)[3] param_1, float param_2, float param_3, float param_4, float param_5,
+                                      float param_6, float param_7, float param_8) {
     param_6 = param_6 * (param_4 / param_1);
     param_7 = param_7 * (param_4 / param_1);
 

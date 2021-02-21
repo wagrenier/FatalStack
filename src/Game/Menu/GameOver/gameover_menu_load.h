@@ -3,7 +3,9 @@
 #include "../../../GPHASE_ENUM.h"
 #include "../../../System/Language.h"
 
-enum GAMEOVER_LOAD_CTRL { UNKNOW0, UNKNOW1, UNKNOW2, UNKNOW3, UNKNOW4};
+enum GAMEOVER_LOAD_CTRL {
+    UNKNOW0, UNKNOW1, UNKNOW2, UNKNOW3, UNKNOW4
+};
 
 int DAT_003f4ca9;
 

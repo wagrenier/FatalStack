@@ -1,5 +1,7 @@
 #pragma once
 
-enum Language { ENGLISH };
+enum Language {
+    ENGLISH
+};
 
 Language GetLanguage();

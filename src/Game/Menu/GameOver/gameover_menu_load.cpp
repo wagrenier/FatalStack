@@ -1,7 +1,6 @@
 #include "gameover_menu_load.h"
 
-void GameOverLoadInit()
-{
+void GameOverLoadInit() {
     IngameWrkInit(0, 0);
     GameOverLoadCtrlInit();
     GameOverLoadDispInit();
@@ -34,8 +33,7 @@ void GameOverLoadInit()
     } while (index < 5);
 }
 
-void GameOverLoadEnd()
-{
+void GameOverLoadEnd() {
     unsigned int *gameover_load_snap_addr_ptr;
 
     if (load_data_buff != 0) {
@@ -49,19 +47,18 @@ void GameOverLoadEnd()
     do {
         index = index + -1;
 
-        if (*(int *)gameover_load_snap_addr_ptr != 0) {
+        if (*(int *) gameover_load_snap_addr_ptr != 0) {
             LiberateDataMemoryArea();
-            *(int *)gameover_load_snap_addr_ptr = 0;
+            *(int *) gameover_load_snap_addr_ptr = 0;
         }
 
-        gameover_load_snap_addr_ptr = (undefined1 *)((int)gameover_load_snap_addr_ptr + 4);
+        gameover_load_snap_addr_ptr = (undefined1 * )((int) gameover_load_snap_addr_ptr + 4);
     } while (-1 < index);
 
     MemoryCardEnd();
 }
 
-void GameOverLoadDataLoadReq()
-{
+void GameOverLoadDataLoadReq() {
     Language defined_language = GetLanguage();
 
     // 0x1177 -> Address of start of language gameover text(ure?)
@@ -71,8 +68,7 @@ void GameOverLoadDataLoadReq()
     FileLoadReqEE(0x13, gameover_load_cmn_tex_addr, 6, 0, 0);
 }
 
-void GameOverLoadMain()
-{
+void GameOverLoadMain() {
     if (gameover_load_ctrl == UNKNOW1) {
         GameOverLoadMcMain();
         return;
@@ -88,8 +84,7 @@ void GameOverLoadMain()
             DAT_003f4ca9 = 0;
             return;
         }
-    }
-    else {
+    } else {
         if (gameover_load_ctrl == UNKNOW2) {
             if (gameover_load_disp != UNKNOW4) {
                 return;
@@ -104,8 +99,7 @@ void GameOverLoadMain()
     PrintAssertReal(0x3b3e70, 0x3b3e58);
 }
 
-void ReleaseGameOverLoadTexMem()
-{
+void ReleaseGameOverLoadTexMem() {
     if (gameover_load_tex_addr != 0) {
 
         // mem_utilFreeMem(gameover_load_tex_addr); <- EE equivalent of free()??
@@ -121,9 +115,8 @@ void ReleaseGameOverLoadTexMem()
     }
 }
 
-void GameOverLoadDispMain()
-{
-    undefined local_30 [16];
+void GameOverLoadDispMain() {
+    undefined local_30[16];
 
     local_30[0] = 0x80;
 
@@ -141,7 +134,7 @@ void GameOverLoadDispMain()
     SaveLoadTitleFrameDisp(0, 0, uVar1, gameover_load_cmn_tex_addr);
     SaveLoadTitleLoadDisp(0, 0, uVar1, gameover_load_tex_addr);
 
-    switch(DAT_003f4ca9) {
+    switch (DAT_003f4ca9) {
         case 0:
         case 1:
         case 2:
@@ -181,8 +174,7 @@ void GameOverLoadDispMain()
     }
 }
 
-void GetGameOverLoadTexMem()
-{
+void GetGameOverLoadTexMem() {
     undefined8 uVar2;
 
     ReleaseGameOverLoadTexMem();
@@ -191,8 +183,7 @@ void GetGameOverLoadTexMem()
         int iVar1 = GetLanguage(0x3b3df0, 0x3b3e20, 0x117, 0x3b3dd8);
         uVar2 = GetFileSize(iVar1 + 0x1177);
         gameover_load_tex_addr = mem_utilGetMem(uVar2);
-    }
-    else {
+    } else {
         SetAssertPreMessage();
         PrintAssertReal(0x3b3e38);
     }
@@ -200,15 +191,13 @@ void GetGameOverLoadTexMem()
     if (gameover_load_cmn_tex_addr == 0) {
         uVar2 = GetFileSize(0x13);
         gameover_load_cmn_tex_addr = mem_utilGetMem(uVar2);
-    }
-    else {
+    } else {
         SetAssertPreMessage(0x3b3df0, 0x3b3e20, 0x11f, 0x3b3dd8);
         PrintAssertReal(0x3b3e38);
     }
 }
 
-bool GameOverLoadDataLoadWait()
-{
+bool GameOverLoadDataLoadWait() {
     bool bVar3 = false;
     int iVar1 = GetLanguage();
     long lVar2 = FileLoadIsEnd2(iVar1 + 0x1177, gameover_load_tex_addr);

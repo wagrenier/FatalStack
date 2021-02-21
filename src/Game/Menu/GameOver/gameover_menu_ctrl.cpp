@@ -1,20 +1,17 @@
 #include "gameover_menu_ctrl.h"
 
-void GameOverMenuCtrlInit()
-{
+void GameOverMenuCtrlInit() {
     current_menu_state = INACTIVE;
 }
 
-void GameOverMenuDispMain()
-{
+void GameOverMenuDispMain() {
     if (INITIATE < current_menu_state) {
         SavePoint_BgDisp(gameover_menu_disp[1], gameover_menu_disp[2], gameover_menu_disp[3], gameover_bg_tex_addr);
     }
 }
 
-void GameOverMenuMain()
-{
-    switch(current_menu_state) {
+void GameOverMenuMain() {
+    switch (current_menu_state) {
         case INACTIVE:
             current_menu_state = INITIATE;
             break;

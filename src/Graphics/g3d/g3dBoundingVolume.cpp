@@ -4,8 +4,7 @@
 
 #include "g3dBoundingVolume.h"
 
-bool g3dbvIsEllipseInclude(float const (*)[3] param1, float const * param2)
-{
+bool g3dbvIsEllipseInclude(float const (*)[3] param1, float const *param2) {
     float fVar1;
     float fVar2;
     float fVar3;
@@ -46,8 +45,8 @@ bool g3dbvIsEllipseInclude(float const (*)[3] param1, float const * param2)
     fVar14 = fVar14 * fVar1 * fVar2 + fVar15 * fVar1 * fVar3 + fVar16 * fVar1 * fVar4;
 
     fVar11 = (fVar12 * fVar7 - fVar6 * fVar13) * fVar1 * fVar2 +
-            (fVar13 * fVar5 - fVar7 * fVar11) * fVar1 * fVar3 +
-            (fVar11 * fVar6 - fVar5 * fVar12) * fVar1 * fVar4;
+             (fVar13 * fVar5 - fVar7 * fVar11) * fVar1 * fVar3 +
+             (fVar11 * fVar6 - fVar5 * fVar12) * fVar1 * fVar4;
 
     fVar1 = (fVar6 * fVar10 - fVar9 * fVar7) * fVar1 * fVar2 +
             (fVar7 * fVar8 - fVar10 * fVar5) * fVar1 * fVar3 +
@@ -56,13 +55,11 @@ bool g3dbvIsEllipseInclude(float const (*)[3] param1, float const * param2)
     return SQRT(fVar14 * fVar14 + fVar11 * fVar11 + in_vf1x * fVar1 * fVar1) + 0.0 <= 1.0;
 }
 
-void g3dbvInnerEllipseFromVertices(float (*)[3] param1, float const (*)[3] param2)
-{
+void g3dbvInnerEllipseFromVertices(float (*)[3] param1, float const (*)[3] param2) {
     g3dbvBoxFromVertices(param1, param2);
 }
 
-void g3dbvBoxFromVertices(float (*)[3] param1, float const (*)[3] param2)
-{
+void g3dbvBoxFromVertices(float (*)[3] param1, float const (*)[3] param2) {
     float fVar1;
     float fVar2;
     float fVar3;
@@ -71,7 +68,7 @@ void g3dbvBoxFromVertices(float (*)[3] param1, float const (*)[3] param2)
     float fVar5;
     float fVar6;
 
-    memset(param_1,0,0x40);
+    memset(param_1, 0, 0x40);
     fVar4 = param_2[7];
     fVar5 = param_2[3];
     fVar2 = param_2[4] - *param_2;

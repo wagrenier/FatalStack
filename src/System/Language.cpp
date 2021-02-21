@@ -1,6 +1,5 @@
 #include "Language.h"
 
-Language GetLanguage()
-{
+Language GetLanguage() {
     return ENGLISH;
 }
