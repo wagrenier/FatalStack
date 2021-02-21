@@ -23,14 +23,14 @@ void g3dCalcViewClipMatrixOrtho(float (*)[3] param_1, float param_2, float param
 
 void g3dCalcViewScreenMatrixPerspective(float (*)[3] param_1, float param_2, float param_3, float param_4, float param_5, float param_6, float param_7, float param_8, float param_9, float param_10)
 {
-    undefined4 *puVar1;
+    G3DCREATIONDATA *puVar1;
     float fVar2;
     float in_stack_00000000;
     undefined auStack144 [64];
 
     fVar2 = (in_stack_00000000 * param_8 * (param_7 - param_6)) / (in_stack_00000000 - param_8);
     sceVu0UnitMatrix();
-    puVar1 = (undefined4 *)param_9;
+    puVar1 = (G3DCREATIONDATA *)param_9;
     puVar1[5] = param_1;
     puVar1[0xb] = 0x3f800000;
     puVar1[0xe] = 0x3f800000;

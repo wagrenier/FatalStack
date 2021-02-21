@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../../GPHASE_ENUM.h"
-#include "../../System/Language.h"
+#include "../../../GPHASE_ENUM.h"
+#include "../../../System/Language.h"
 
 enum GAMEOVER_LOAD_CTRL { UNKNOW0, UNKNOW1, UNKNOW2, UNKNOW3, UNKNOW4};
 

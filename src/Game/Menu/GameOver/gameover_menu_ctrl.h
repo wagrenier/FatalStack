@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../GPHASE_ENUM.h"
+#include "../../../GPHASE_ENUM.h"
 
 enum GameOver_Menu_State { INACTIVE, INITIATE, RENDER, SELECTION_MENU, FADE_OUT_MENU };
 

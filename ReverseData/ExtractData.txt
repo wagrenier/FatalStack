@@ -16,3 +16,11 @@ Being hit 2 times in theFileLoad
 
 1 - 0026F020
 2 - 0026F14C
+
+All file names are located in the .rodata section of the executable
+
+File path starts at, ends at
+0x003c7e78, 0x003c8448
+
+File name starts at, ends at
+0x003c8528, 0x003dd3c0

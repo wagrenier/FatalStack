@@ -126,7 +126,7 @@ void end_GameOver_Menu_Load()
 }
 
 // void GameOverMenuTexLoadReq__FPvi(undefined8 param_1,undefined8 param_2)
-void GameOverMenuTexLoadReq(void *, int)
+void GameOverMenuTexLoadReq(void *param_1, int param_2)
 {
     FileLoadReqEE(param_2, param_1, 2, 0, 0);
 }
