@@ -1,6 +1,5 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include <SDL2/SDL_timer.h>
 
 int main(int argc, char *argv[]) {
     // returns zero on success else non-zero
@@ -49,7 +48,7 @@ int main(int argc, char *argv[]) {
     // sets initial y-position of object
     dest.y = (1000 - dest.h) / 2;
 
-    // controls annimation loop
+    // controls animation loop
     int close = 0;
 
     // speed of box
@@ -92,20 +91,28 @@ int main(int argc, char *argv[]) {
         }
 
         // right boundary
-        if (dest.x + dest.w > 1000)
+        if (dest.x + dest.w > 1000) {
             dest.x = 1000 - dest.w;
+        }
+
 
         // left boundary
-        if (dest.x < 0)
+        if (dest.x < 0) {
             dest.x = 0;
+        }
+
 
         // bottom boundary
-        if (dest.y + dest.h > 1000)
+        if (dest.y + dest.h > 1000) {
             dest.y = 1000 - dest.h;
+        }
+
 
         // upper boundary
-        if (dest.y < 0)
+        if (dest.y < 0) {
             dest.y = 0;
+        }
+
 
         // clears the screen
         SDL_RenderClear(rend);
@@ -127,5 +134,6 @@ int main(int argc, char *argv[]) {
 
     // destroy window
     SDL_DestroyWindow(win);
+
     return 0;
 }
