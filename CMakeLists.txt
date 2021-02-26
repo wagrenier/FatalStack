@@ -11,8 +11,8 @@ project(FatalStack)
 
 set(CMAKE_CXX_STANDARD 14)
 
-if($SDL_FOUND)
-    execute_process(COMMAND vcpkg install sdl2 COMMAND vcpkg install sdl2image WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg)
+if(NOT $SDL_FOUND)
+    execute_process(COMMAND vcpkg.exe install sdl2 COMMAND vcpkg.exe install sdl2image WORKING_DIRECTORY ./vcpkg)
 endif()
 
 find_package(SDL2 CONFIG REQUIRED)
