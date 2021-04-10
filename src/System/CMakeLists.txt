@@ -1,0 +1,1 @@
+add_library(iopsys OBJECT Language.cpp Language.h InitSystem.cpp InitSystem.h IO/File/file_handler.cpp IO/File/file_handler.h)

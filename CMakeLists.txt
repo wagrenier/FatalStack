@@ -7,7 +7,7 @@ endif()
 set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake
         CACHE STRING "Vcpkg toolchain file")
 
-project(FatalStack)
+project(FatalStack CXX)
 
 set(CMAKE_CXX_STANDARD 14)
 
