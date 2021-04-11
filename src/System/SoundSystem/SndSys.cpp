@@ -165,11 +165,14 @@ void SndCalcValue(float param_1, int param_2, int param_3, int param_4, int para
         }
     }
 
+    // sVar1 is the pitch
     *param_9 = sVar1;
 
-    bool sndIsMono = SndIsMono();
+    if (0x3fff < sVar1) {
+        printf("SndCalcValue pitch is over max\n");
+    }
 
-    if (sndIsMono)
+    if (SndIsMono())
     {
         sVar1 = (short)((int)param_9_00[1] + (int)*param_9_00 >> 1);
         param_9_00[1] = sVar1;
