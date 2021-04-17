@@ -117,6 +117,8 @@ void SndAllStop()
 void SndCalcValue(float param_1, int param_2, int param_3, int param_4, int param_5, int param_6,
                   int groupIndex, long param_8, short *param_9_00, short *param_9)
 {
+    // Largest offset (Start of struct) ->
+    // Smallest offset (End of Struct) ->
     // Param1 to param8 seem to be within a first param structure (snd_wrk)
     // Param2 seems to be a value within the header for the file
     // param1 => 0x3200, param2 => 0x80, param3 => 0x19, param4 => 0x1000, param5 => 0xEB3, param6 => 0, param7 => 0, param8 => 0x1FFFC00
