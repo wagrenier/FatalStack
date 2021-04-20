@@ -4,6 +4,7 @@
 
 #include "mc_set_data.h"
 #include "Save.h"
+#include "mc_cmn.h"
 
 
 void SetMemoryCardSaveDataToBuff(char *buf_to_write, int album, int save_slot)

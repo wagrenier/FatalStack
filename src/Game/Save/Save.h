@@ -13,8 +13,11 @@ struct MC_SAVE_DATA {
     int arr_size;
 };
 
+//***** Fully Implemented Functions ***** //
 /// The pointer is one of an array
 void SetMemoryCardSaveDataInfo(MC_SAVE_DATA *param_1, int album, int save_slot);
+
+//***** Unimplemented Functions ***** //
 void GameDataSaveMcMain();
 
 #endif //FATALSTACK_SAVE_H

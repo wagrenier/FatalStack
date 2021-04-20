@@ -13,12 +13,12 @@ void SetMemoryCardSaveDataInfo(MC_SAVE_DATA *param_1, int album, int save_slot)
     do {
         if (album == 0) {
             if (game_save_data[save_slot] == (undefined *)0x0) {
-                LAB_001b0708:
+LAB_001b0708:
                 loop_check = true;
             }
             else {
                 save_func = (code **)(game_save_data[save_slot][index]);
-                LAB_001b0714:
+LAB_001b0714:
                 if (*save_func == (code *)0x0) {
                     param_1->arr_addr = (undefined *)0x0;
                     loop_check = true;

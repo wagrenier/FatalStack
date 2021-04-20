@@ -28,7 +28,7 @@
 /// 0x00000000001e2360                GetMemoryCardPlayDataRoomLabel(int)
 /// 0x00000000001e1fe0                MemoryCardDataLoadReq(void *, int)
 /// 0x00000000001e28b0                MemoryCardSetIconFileName(char *, int, int)
-/// 0x00000000001e19c0                SetMemoryCardSaveDataToBuff(char *, int, int)
+/// 0x00000000001e19c0                SetMemoryCardSaveDataToBuff(char *, int, int)         DONE
 /// 0x00000000001e25b0                MemoryCardSetIconSysData(int)
 /// 0x00000000001e2928                MemoryCardSetIconFilePath(char *, int, int)
 /// 0x00000000001e2a48                GetIconDataSize(int, int)
@@ -43,6 +43,10 @@
 /// 0x00000000001e22f0                GetMemoryCardPlayDataChapter(int)
 /// 0x00000000001e17e8                MemoryCardSoftResetUnlock(void)
 
+
+//***** Fully Implemented Functions ***** //
 void SetMemoryCardSaveDataToBuff(char *buf_to_write, int album, int save_slot);
+
+//***** Unimplemented Functions ***** //
 
 #endif //FATALSTACK_MC_SET_DATA_H
