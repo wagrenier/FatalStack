@@ -1,13 +1,27 @@
 # Info concerning the coding standards used:
-* When a **variable ends** with `_num`, it is most likely and index for an `array`
+* When a **variable ends** with `_num`, it is most likely a size for an `array`
 * All chXXX_Y_ are an array of 15, 31
 * When a **variable contains** `_WRK`, it is most likely a `struct`
 * When a **variable contains** `_CTRL`, it is most likely an `enum` for control
 * When a **variable contains** `cmp`, it is most likely indicating a function for `compressed` data
 
 # General useful information:
-* The PS2 DVD sectors are `2048 bytes`
+* The PS2 DVD sectors are `2048 (0x800) bytes`
 * **PCSX2**'s base address is `0x20000000`
+
+# Files
+For each file:
+* 4 byte - LBA
+* 4 byte - unpack file size
+* 4 byte - file size in archive
+
+Calculation of real LBA:
+* real LBA = (LBA bitwise shift right 2) * 0x800
+
+Value of right 2 bits of LBA is:
+* 0 - no file
+* 2 - file not compressed
+* 3 - file compressed
 
 # Fun With Cameras
 * Address of the pointer containing the current camera's properties `0x003420BC`
