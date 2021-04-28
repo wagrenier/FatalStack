@@ -1,7 +1,16 @@
 # Import statements
 import json
+from enum import Enum
+
+
+class FileStatus(Enum):
+    NO_FILE = 0
+    FILE_NOT_COMPRESSED = 2
+    FILE_COMPRESSED = 3
+
 
 # Define global values
+DEBUG = True
 # 2048 bytes
 sector_size = 0x800
 

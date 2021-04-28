@@ -2,6 +2,7 @@ snd_bank_max = 0x1E
 snd_bd_file = 0x4EEE20
 
 
+# SndBankFileSearch(snd_bd_file);
 def SndBankFileGet(param_1):
     sVar1 = 0x0
     iVar2 = 0x0
@@ -36,3 +37,8 @@ def SndBankFileSearch(param_1, param_2):
                 break
 
     return 0
+
+
+if __name__ == '__main__':
+    print(SndBankFileGet(snd_bd_file))
+

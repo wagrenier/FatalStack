@@ -7,20 +7,35 @@ def GetAlignUp(param_1, param_2):
 
 
 def cddatIsCmpFile(file_index):
-    print(hex(p_cd_dat + file_index * 0xc))
     return cd_dat_tbl[hex(p_cd_dat + file_index * 0xc)] & 1
 
 
-def GetFileCmpSize(file_index):
-    return GetAlignUp((p_cd_dat + file_index * 0xc + 8), 4)
+def cddatIsFile(file_index):
+    file_status = cd_dat_tbl[hex(p_cd_dat + file_index * 0xc)] & 0b00000011
+    if file_status == 0b00:
+        return FileStatus.NO_FILE
+    elif file_status == 0b10:
+        return FileStatus.FILE_NOT_COMPRESSED
+    elif file_status == 0b11:
+        return FileStatus.FILE_COMPRESSED
+
+    return FileStatus.NO_FILE
 
 
 def GetFileData(param_1, param_2):
     return (file_dat_tbl + param_1 * 4) + param_2 * 4
 
 
+def GetFile(file_index):
+    return GetAlignUp((p_cd_dat + file_index * 0xc), 4)
+
+
 def GetFileSize(file_index):
     return GetAlignUp((p_cd_dat + file_index * 0xc + 4), 4)
+
+
+def GetFileCmpSize(file_index):
+    return GetAlignUp((p_cd_dat + file_index * 0xc + 8), 4)
 
 
 def GetFileSectorSize(file_index):
@@ -52,19 +67,70 @@ def FurnCtlCheckFileType(param_1):
     return uVar2
 
 
-def buildFileDb():
+def GetFileEndAddress(file_start_addr, file_size):
     print()
 
 
-def compute_IMG_BIN_File_Address(file_index):
-    print()
+"""
+For each file:
+* 4 byte - LBA
+* 4 byte - unpack file size
+* 4 byte - file size in archive
+"""
+
+
+def ExtractFile(file_index):
+    file = cd_dat_tbl[hex(GetFile(file_index))]
+    file_status = cddatIsFile(file_index)
+    file_size = cd_dat_tbl[hex(GetFileSize(file_index))]
+    file_size_cmp = cd_dat_tbl[hex(GetFileCmpSize(file_index))]
+    file_bd_addr = Compute_IMG_BIN_File_Address(file)
+    file_end = file_bd_addr + file_size_cmp
+
+    if DEBUG:
+        print(
+            f'FileID:{hex(file_index)},FileSize:{float(file_size)},CmpSize:{float(file_size_cmp)},IsCmpFile:'
+            f'{cddatIsFile(file_index)},FileLBA:{hex(file_bd_addr)},FileEnd:{hex(file_end)}'
+        )
+
+    return \
+        {
+            'FileID': file_index,
+            'File': file,
+            'FileStatus': file_status,
+            'FileBDAddr': file_bd_addr,
+            'FileBDEndAddr': file_end,
+            'FileSize': file_size,
+            'FileSizeCmp': file_size_cmp
+        }
+
+
+def extract_addr(json):
+    try:
+        return json['FileBDAddr']
+    except KeyError:
+        return 0
+
+
+def BuildFileDb():
+    files_id = range(0, project_file_num - 1)
+    file_db = []
+
+    for curr_file in files_id:
+        extracted_file = ExtractFile(curr_file)
+
+        file_db.append(extracted_file)
+
+    file_db.sort(key=extract_addr)
+
+    #for my_file in file_db:
+        #print(my_file)
+
+
+def Compute_IMG_BIN_File_Address(file):
+    file_lba = (file >> 2) * sector_size
+    return file_lba
 
 
 if __name__ == '__main__':
-    files_id = range(0, project_file_num)
-
-    for file in files_id:
-        file_size = GetFileSize(file)
-        var1 = GetAlignUp(file_size, 6)
-        print(f'FileID:{hex(file)},File size:{hex(cd_dat_tbl[hex(file_size)])},FileStartSector:{hex(GetFileStartSector(file))},IsCmpFile:{cddatIsCmpFile(file) == 1},CmpSize:{hex(cd_dat_tbl[hex(GetFileCmpSize(file))])}')
-        #,FileData:{hex(GetFileData(file))}
+    BuildFileDb()
