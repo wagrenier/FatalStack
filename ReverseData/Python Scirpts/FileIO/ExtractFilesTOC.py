@@ -6,7 +6,7 @@ def PrintFileInfo(file):
     if DEBUG:
         file_debug_string = 'FileID:{},FileStatus:{},StartAddrLBA:{},FileEndLBA:{},FileSize:{},FileSizeCmp:{}'.format\
                 (
-                    hex(file['FileID']), file['FileStatus'], hex(file['FileBDAddr']), hex(file['FileBDEndAddr']),
+                    hex(file['FileID']), file['FileStatus'], hex(file['File']), hex(file['FileBDEndAddr']),
                     hex(file['FileSize']), hex(file['FileSizeCmp'])
                 )
 
