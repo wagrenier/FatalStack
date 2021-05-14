@@ -11,10 +11,10 @@ class FileStatus(Enum):
 
 # Define global values
 DEBUG = True
-# 2048 bytes
-sector_size = 0x800
+sector_size = 0x800  # 2048 bytes
 
 # Number of files in the cddat
+disp_file_data = 0x00404188  # Seems to be an 2D array with 2 elements of length 4
 project_file_num = 0x106B
 p_cd_dat = 0x002F30B8
 p_ext_lbl = 0x002FF5C0
