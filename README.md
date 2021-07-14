@@ -26,6 +26,9 @@ Value of right 2 bits of LBA is:
 * 2 - file not compressed
 * 3 - file compressed
 
+File ID:
+* 0x1064 -> subtitles
+
 File Types
 * 0x2 -> MDL?
 * 0x3 -> FULL TIM2 (not in model archive)
